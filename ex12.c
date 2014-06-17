@@ -56,5 +56,6 @@ int main(int argc, char *argv[])
 		
 		4.  Is the first test really saying the right thing?  To you the "first argument" isn't the same 
 			first argument a user entered.  Fix it.  
+				Fixed it.
 			
 */
