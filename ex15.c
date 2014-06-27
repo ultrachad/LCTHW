@@ -1,5 +1,29 @@
 #include <stdio.h>
 
+void print_ptrs(int *an_age, char **a_name, int counter)
+{
+	int i;
+	for(i = 0; i < counter; i++) {
+		printf("%s has functioned for %d years.\n", *(a_name+i), *(an_age+i));
+		printf("Address of an_age[%d] is: %p\n", i, &an_age+i);
+		printf("Address of a_name[%d] is: %p\n", i, &a_name+i);
+	}
+	printf("Address of count is %p\n", &counter);
+}
+
+void print_vars(int age_array[], char *name_array[], int count)
+{
+	int i;
+	for(i = 0; i < count; i++) {
+		printf("%s has functioned for %d years.\n", name_array[i], age_array[i]);
+		printf("Address of age_array[%d] is: %p\n", i, &age_array[i]);
+		printf("Address of name_array[%d] is: %p\n", i, &name_array[i]);
+	}
+	printf("Address of count is %p\n", &count);
+	printf("Address of age_array[] is: %p\n", &age_array);
+	printf("Address of name_array[] is: %p\n", &name_array);
+}
+
 int main (int argc, char *argv[])
 {
 	// create two arrays we care about
@@ -92,6 +116,13 @@ int main (int argc, char *argv[])
 		printf("ages:    %p\ncur_age: %p\n", ages, cur_age);
 	}
 	
+/************************** EXTRA CREDIT #7 *************************************/
+
+	print_ptrs(ages, names, count);
+	
+	print_vars(ages, names, count);
+	
+	
 	return 0;
 }
 
@@ -119,6 +150,10 @@ int main (int argc, char *argv[])
 					This wasn't too bad.  The fourth way makes more sense now, after having really dissected it.
 					
 		Extra Credit:
+		
+			7.  Rewrite this program to use a function for each of the ways you're printing out things.  Try to 
+				pass pointers to these functions so they work on the data.  Remember you can declare a function to 
+				accept a pointer but just use it like an array.  
 			
 						
 					
